@@ -30,7 +30,7 @@ st.set_page_config(
 )
 
 # Define the UI layout
-st.markdown("<h1 style='text-align: center;'> 📖 Dork's Data Digest</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'> 📖 Dork's Data Digest - Discover top-rated books based on Data Science topics</h1>", unsafe_allow_html=True)
 st.markdown("<div style='margin-bottom:20px;'></div>", unsafe_allow_html=True)  # Add space between title and subtitle
 st.markdown("<h3 style='text-align: center; margin-bottom: 20px;'>Select a Data Science topic below to explore top-rated books:</h3>", unsafe_allow_html=True)
 
@@ -60,4 +60,20 @@ for topic, df_cluster in dfs.items():
 # Display the selected cluster if it's not None
 if selected_cluster is not None:
     st.subheader(f"Cluster: **{selected_cluster}**")
-    st.write(dfs[selected_cluster])
+    books = dfs[selected_cluster]
+
+    # Pagination
+    page_number = st.session_state.get('page_number', 0)
+    if st.button("Previous") and page_number > 0:
+        page_number -= 1
+    if st.button("Next") and page_number < len(books) - 1:
+        page_number += 1
+    st.session_state['page_number'] = page_number
+
+    # Display book information
+    book = books.iloc[page_number]
+    st.markdown(
+        f"<div style='display:flex; align-items:center;'><img src='{book['image_link']}' style='width:100px;height:150px;margin-right:20px;'/>"
+        f"<div><h3>{book['title']}</h3><p>Average Reviews: {book['avg_reviews']}</p><a href='{book['complete_link']}' target='_blank'>Amazon Link</a></div></div>",
+        unsafe_allow_html=True
+    )
