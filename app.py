@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 # Load the DataFrame from CSV files
-data_analysis_df = pd.read_csv('Data Analysis.csv')
+data_analysis_df = pd.read_csv('datasets/Data Analysis.csv')
 machine_learning_df = pd.read_csv('datasets/Machine Learning.csv')
 deep_learning_df = pd.read_csv('datasets/Deep Learning.csv')
 computer_vision_df = pd.read_csv('datasets/Computer Vision.csv')
