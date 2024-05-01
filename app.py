@@ -22,10 +22,10 @@ dfs = {
 }
 
 # Set page title and page layout
-st.set_page_config(page_title="Dork's Data Digest", page_icon=":books:", layout="wide")
+st.set_page_config(page_title="📚 Dork's Data Digest", page_icon=":books:", layout="wide")
 
 # Define the UI layout
-st.markdown("<h1 style='text-align: center;'><span style='font-size:48px; display: inline-block;'>📚📚📚</span> <b style='display: inline-block;'>Dork's Data Digest</b></h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>Dork's Data Digest</h1>", unsafe_allow_html=True)
 st.markdown("<h3 style='text-align: center;'>Discover top-rated books based for Data Science</h3>", unsafe_allow_html=True)
 
 # Display buttons for each cluster in the main area
