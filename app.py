@@ -22,10 +22,10 @@ dfs = {
 }
 
 # Set page title and page layout
-st.set_page_config(page_title="Clustered Books App", page_icon=":books:", layout="wide")
+st.set_page_config(page_title="Dork's Data Digest", page_icon=":books:", layout="wide")
 
 # Define the UI layout
-st.title("Clustered Books App")
+st.title("Dork's Data Digest")
 
 # Display buttons for each cluster in the main area
 col1, col2, col3 = st.columns(3)
