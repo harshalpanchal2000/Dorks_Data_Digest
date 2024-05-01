@@ -25,24 +25,33 @@ dfs = {
 st.set_page_config(page_title="Dork's Data Digest", page_icon=":books:", layout="wide")
 
 # Define the UI layout
-st.title("Dork's Data Digest")
-st.subheader("Discover top-rated books based for Data Science")
+st.title("**Dork's Data Digest**")
+st.markdown("_Discover top-rated books based for Data Science_")
 
 # Display buttons for each cluster in the main area
 col1, col2, col3 = st.columns(3)
 selected_cluster = None
+cluster_emoticons = {
+    "Data Analysis": ":bar_chart:",
+    "Machine Learning": ":robot:",
+    "Deep Learning": ":brain:",
+    "Computer Vision": ":camera:",
+    "NLP": ":speech_balloon:",
+    "AI": ":rocket:",
+    "Math": ":1234:"
+}
 for topic, df_cluster in dfs.items():
     if topic in ["Data Analysis", "Machine Learning", "Deep Learning"]:
-        if col1.button(topic):
+        if col1.button(f"{cluster_emoticons[topic]} {topic}"):
             selected_cluster = topic
     elif topic in ["Computer Vision", "NLP", "AI"]:
-        if col2.button(topic):
+        if col2.button(f"{cluster_emoticons[topic]} {topic}"):
             selected_cluster = topic
     else:
-        if col3.button(topic):
+        if col3.button(f"{cluster_emoticons[topic]} {topic}"):
             selected_cluster = topic
 
 # Display the selected cluster if it's not None
 if selected_cluster is not None:
-    st.subheader(f"Cluster: {selected_cluster}")
+    st.subheader(f"Cluster: **{selected_cluster}**")
     st.write(dfs[selected_cluster])
