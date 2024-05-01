@@ -41,6 +41,7 @@ for topic, df_cluster in dfs.items():
         if col3.button(topic):
             selected_cluster = topic
 
-# Display the selected cluster
-st.subheader(f"Cluster: {selected_cluster}")
-st.write(dfs[selected_cluster])
+# Display the selected cluster if it's not None
+if selected_cluster is not None:
+    st.subheader(f"Cluster: {selected_cluster}")
+    st.write(dfs[selected_cluster])
