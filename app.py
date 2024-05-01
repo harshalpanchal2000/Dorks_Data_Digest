@@ -2,14 +2,13 @@ import streamlit as st
 import pandas as pd
 
 # Load the DataFrame from CSV files
-# Replace 'Data Analysis.csv', 'Machine Learning.csv', etc. with the actual file paths
 data_analysis_df = pd.read_csv('Data Analysis.csv')
-machine_learning_df = pd.read_csv('Machine Learning.csv')
-deep_learning_df = pd.read_csv('Deep Learning.csv')
-computer_vision_df = pd.read_csv('Computer Vision.csv')
-nlp_df = pd.read_csv('NLP.csv')
-ai_df = pd.read_csv('AI.csv')
-math_df = pd.read_csv('Math.csv')
+machine_learning_df = pd.read_csv('datasets/Machine Learning.csv')
+deep_learning_df = pd.read_csv('datasets/Deep Learning.csv')
+computer_vision_df = pd.read_csv('datasets/Computer Vision.csv')
+nlp_df = pd.read_csv('datasets/NLP.csv')
+ai_df = pd.read_csv('datasets/AI.csv')
+math_df = pd.read_csv('datasets/Math.csv')
 
 # Create a dictionary to store DataFrames
 dfs = {
