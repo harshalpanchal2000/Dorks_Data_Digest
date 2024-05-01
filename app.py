@@ -22,22 +22,25 @@ dfs = {
 }
 
 # Set page title and page layout
-st.set_page_config(page_title="Dork's Data Digest", page_icon=":books:", layout="wide")
+st.set_page_config(page_title="Clustered Books App", page_icon=":books:", layout="wide")
 
 # Define the UI layout
-st.title("Dork's Data Digest")
+st.title("Clustered Books App")
 
 # Display buttons for each cluster in the main area
 col1, col2, col3 = st.columns(3)
+selected_cluster = None
 for topic, df_cluster in dfs.items():
     if topic in ["Data Analysis", "Machine Learning", "Deep Learning"]:
-        col1.button(topic, key=topic)
+        if col1.button(topic):
+            selected_cluster = topic
     elif topic in ["Computer Vision", "NLP", "AI"]:
-        col2.button(topic, key=topic)
+        if col2.button(topic):
+            selected_cluster = topic
     else:
-        col3.button(topic, key=topic)
+        if col3.button(topic):
+            selected_cluster = topic
 
 # Display the selected cluster
-selected_cluster = st.session_state.clicked_button or "Data Analysis"
 st.subheader(f"Cluster: {selected_cluster}")
 st.write(dfs[selected_cluster])
