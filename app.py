@@ -49,18 +49,18 @@ cluster_emoticons = {
 for topic, df_cluster in dfs.items():
     if topic in ["Data Analysis", "Machine Learning", "Deep Learning"]:
         if col1.button(f"{cluster_emoticons[topic]} {topic}"):
-            selected_cluster = topic
+            selected_cluster = dfs[topic]
     elif topic in ["Computer Vision", "Natural Language Processing", "Artificial Intelligence"]:
         if col2.button(f"{cluster_emoticons[topic]} {topic}"):
-            selected_cluster = topic
+            selected_cluster = dfs[topic]
     else:
         if col3.button(f"{cluster_emoticons[topic]} {topic}"):
-            selected_cluster = topic
+            selected_cluster = dfs[topic]
 
 # Display the selected cluster if it's not None
 if selected_cluster is not None:
     st.subheader(f"Cluster: **{selected_cluster}**")
-    books = dfs[selected_cluster]
+    books = selected_cluster
 
     # Pagination
     page_number = st.session_state.get('page_number', 0)
@@ -73,7 +73,7 @@ if selected_cluster is not None:
     # Display book information
     book = books.iloc[page_number]
     st.markdown(
-        f"<div style='display:flex; align-items:center;'><img src='{book['image_link']}' style='width:100px;height:150px;margin-right:20px;'/>"
+        f"<div style='display:flex; align-items:center;'><img src='{book['complete_link']}' style='width:100px;height:150px;margin-right:20px;'/>"
         f"<div><h3>{book['title']}</h3><p>Average Reviews: {book['avg_reviews']}</p><a href='{book['complete_link']}' target='_blank'>Amazon Link</a></div></div>",
         unsafe_allow_html=True
     )
