@@ -32,13 +32,13 @@ st.markdown("_Discover top-rated books based for Data Science_")
 col1, col2, col3 = st.columns(3)
 selected_cluster = None
 cluster_emoticons = {
-    "Data Analysis": ":bar_chart:",
-    "Machine Learning": ":robot:",
-    "Deep Learning": ":brain:",
-    "Computer Vision": ":camera:",
-    "NLP": ":speech_balloon:",
-    "AI": ":rocket:",
-    "Math": ":1234:"
+    "Data Analysis": "📊",
+    "Machine Learning": "🤖",
+    "Deep Learning": "🧠",
+    "Computer Vision": "📷",
+    "NLP": "💬",
+    "AI": "🚀",
+    "Math": "🔢"
 }
 for topic, df_cluster in dfs.items():
     if topic in ["Data Analysis", "Machine Learning", "Deep Learning"]:
