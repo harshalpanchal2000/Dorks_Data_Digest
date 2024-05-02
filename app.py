@@ -1,3 +1,6 @@
+Got it. Here's the modified code without the sidebar, displaying only the main section with emoticons next to each cluster:
+
+```python
 import streamlit as st
 import pandas as pd
 
@@ -5,8 +8,7 @@ import pandas as pd
 st.set_page_config(
     page_title="Dork's Data Digest - Discover top-rated books based on Data Science topics",
     page_icon=":books:",
-    layout="wide",
-    initial_sidebar_state="expanded"  # Expand the sidebar by default
+    layout="wide"
 )
 
 # Load the DataFrame from CSV files
@@ -31,10 +33,11 @@ dfs = {
 
 # Define the UI layout
 def display_homepage():
-    st.title("📖 Dork's Data Digest")
-    st.subheader("Discover top-rated books based for Data Science")
-    for cluster in dfs.keys():
-        if st.button(cluster):
+    st.markdown("<h1 style='text-align: center;'>📖 Dork's Data Digest</h1>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center;'>Discover top-rated books based for Data Science</h3>", unsafe_allow_html=True)
+    for cluster, df in dfs.items():
+        col1, _, _ = st.columns([1, 0.1, 4])
+        if col1.button(f"{cluster}: {get_cluster_emoticon(cluster)} {cluster}"):
             session_state = get_session_state()
             session_state.selected_cluster = cluster
             st.experimental_rerun()
@@ -48,8 +51,11 @@ def cluster_page(cluster_name):
     st.write(dfs[cluster_name])
 
 # Run the app
-selected_page = st.sidebar.radio("Select Page", ("Home",) + tuple(dfs.keys()))
+selected_page = st.radio("Select Page", ("Home",) + tuple(dfs.keys()))
 if selected_page == "Home":
     home()
 else:
     cluster_page(selected_page)
+```
+
+This code should display the main section with emoticons next to each cluster name and without the sidebar.
