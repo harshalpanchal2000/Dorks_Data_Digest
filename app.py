@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-from multipage import MultiPage
 
 # Load the DataFrame from CSV files
 data_analysis_df = pd.read_csv('datasets/Data Analysis.csv')
@@ -40,13 +39,9 @@ def cluster_page(cluster_name):
     st.title(f"{cluster_name} Cluster Page")
     st.write(dfs[cluster_name])
 
-# Create an instance of the MultiPage class
-app = MultiPage()
-
-# Add your pages to the app
-app.add_page("Home", home)
-for cluster in dfs.keys():
-    app.add_page(cluster, lambda: cluster_page(cluster))
-
 # Run the app
-app.run()
+selected_page = st.sidebar.radio("Select Page", ("Home",) + tuple(dfs.keys()))
+if selected_page == "Home":
+    home()
+else:
+    cluster_page(selected_page)
