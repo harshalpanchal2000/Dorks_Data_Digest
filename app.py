@@ -32,11 +32,16 @@ dfs = {
 def display_homepage():
     st.markdown("<h1 style='text-align: center;'>📖 Dork's Data Digest</h1>", unsafe_allow_html=True)
     st.markdown("<h3 style='text-align: center;'>Discover top-rated books based for Data Science</h3>", unsafe_allow_html=True)
+    
+    col1, col2, col3 = st.columns(3)  # Create three columns
+    
     for cluster in dfs.keys():
-        if st.button(f"{cluster}"):
-            session_state = get_session_state()
-            session_state.selected_cluster = cluster
-            st.experimental_rerun()
+        if cluster.startswith("Data"):
+            col1.button(f"{cluster}")
+        elif cluster.startswith("Machine"):
+            col2.button(f"{cluster}")
+        else:
+            col3.button(f"{cluster}")
 
 # Define your page functions
 def home():
