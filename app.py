@@ -33,15 +33,19 @@ def display_homepage():
     st.markdown("<h1 style='text-align: center;'>📖 Dork's Data Digest</h1>", unsafe_allow_html=True)
     st.markdown("<h3 style='text-align: center;'>Discover top-rated books based for Data Science</h3>", unsafe_allow_html=True)
     
+    num_clusters = len(dfs)
+    clusters_per_column = (num_clusters + 2) // 3  # Calculate clusters per column with rounding up
+    
     col1, col2, col3 = st.columns(3)  # Create three columns
     
-    for cluster in dfs.keys():
-        if cluster.startswith("Data"):
-            col1.button(f"{cluster}")
-        elif cluster.startswith("Machine"):
-            col2.button(f"{cluster}")
+    clusters = list(dfs.keys())
+    for i, cluster in enumerate(clusters):
+        if i < clusters_per_column:
+            col1.button(cluster)
+        elif i < 2 * clusters_per_column:
+            col2.button(cluster)
         else:
-            col3.button(f"{cluster}")
+            col3.button(cluster)
 
 # Define your page functions
 def home():
