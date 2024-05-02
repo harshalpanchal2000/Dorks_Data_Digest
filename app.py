@@ -1,6 +1,3 @@
-To create separate pages for each cluster, you can define a function for each cluster page. Here's how you can modify the code:
-
-```python
 import streamlit as st
 import pandas as pd
 
@@ -80,6 +77,3 @@ elif selected_page == "Artificial Intelligence":
     ai_page()
 elif selected_page == "Mathematics":
     math_page()
-``` 
-
-With this code, each cluster page function is called when the corresponding cluster name is selected from the sidebar.
