@@ -1,6 +1,3 @@
-Got it. Here's the modified code without the sidebar, displaying only the main section with emoticons next to each cluster:
-
-```python
 import streamlit as st
 import pandas as pd
 
@@ -56,6 +53,3 @@ if selected_page == "Home":
     home()
 else:
     cluster_page(selected_page)
-```
-
-This code should display the main section with emoticons next to each cluster name and without the sidebar.
