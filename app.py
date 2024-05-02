@@ -32,8 +32,8 @@ dfs = {
 def display_homepage():
     st.markdown("<h1 style='text-align: center;'>📖 Dork's Data Digest</h1>", unsafe_allow_html=True)
     st.markdown("<h3 style='text-align: center;'>Discover top-rated books based for Data Science</h3>", unsafe_allow_html=True)
-    for cluster, df in dfs.items():
-        if st.button(f"{cluster}: {get_cluster_emoticon(cluster)} {cluster}"):
+    for cluster in dfs.keys():
+        if st.button(f"{cluster}"):
             session_state = get_session_state()
             session_state.selected_cluster = cluster
             st.experimental_rerun()
