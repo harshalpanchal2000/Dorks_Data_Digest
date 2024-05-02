@@ -1,6 +1,6 @@
 import streamlit as st
-from streamlit.report_thread import get_report_ctx
-from streamlit.server.server import Server
+import pandas as pd
+from multipage import MultiPage
 
 # Load the DataFrame from CSV files
 data_analysis_df = pd.read_csv('datasets/Data Analysis.csv')
@@ -22,17 +22,6 @@ dfs = {
     "Mathematics": math_df
 }
 
-# Function to retrieve the session state
-def get_session_state():
-    ctx = get_report_ctx()
-    session = None
-    session_infos = Server.get_current()._session_info_by_id.values()
-    for session_info in session_infos:
-        if session_info.session.id == ctx.session_id:
-            session = session_info.session
-            break
-    return session
-
 # Define the UI layout
 def display_homepage():
     st.title("Dork's Data Digest")
@@ -43,21 +32,21 @@ def display_homepage():
             session_state.selected_cluster = cluster
             st.experimental_rerun()
 
-# Display the selected cluster page
-def display_cluster_page():
-    session_state = get_session_state()
-    selected_cluster = session_state.selected_cluster
-    st.subheader(f"Cluster: {selected_cluster}")
-    st.write(dfs[selected_cluster])
+# Define your page functions
+def home():
+    display_homepage()
 
-# Main function to switch between pages
-def main():
-    session_state = get_session_state()
-    if hasattr(session_state, 'selected_cluster'):
-        display_cluster_page()
-    else:
-        display_homepage()
+def cluster_page(cluster_name):
+    st.title(f"{cluster_name} Cluster Page")
+    st.write(dfs[cluster_name])
+
+# Create an instance of the MultiPage class
+app = MultiPage()
+
+# Add your pages to the app
+app.add_page("Home", home)
+for cluster in dfs.keys():
+    app.add_page(cluster, lambda: cluster_page(cluster))
 
 # Run the app
-if __name__ == "__main__":
-    main()
+app.run()
