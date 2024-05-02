@@ -72,8 +72,28 @@ if selected_cluster is not None:
 
     # Display book information
     book = books.iloc[page_number]
+
     st.markdown(
-        f"<div style='display:flex; align-items:center;'><img src='{book['complete_link']}' style='width:100px;height:150px;margin-right:20px;'/>"
-        f"<div><h3>{book['title']}</h3><p>Average Reviews: {book['avg_reviews']}</p><a href='{book['complete_link']}' target='_blank'>Amazon Link</a></div></div>",
+        f"""
+        <main>
+            <div class="navbar bg-base-100 rounded-box shadow-lg mb-4 md:mb-6 max-w-[40rem] mx-auto">
+                <div class="navbar-start w-1/4">
+                    <button class="btn btn-square btn-ghost" aria-label="Go to homepage">
+                        <div class="relative w-full aspect-square m-1">
+                            <span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0">
+                                <img alt="Book Preview" src="{book['complete_link']}" decoding="async" data-nimg="fill" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%;" sizes="100vw" srcset="{book['complete_link']}">
+                            </span>
+                        </div>
+                    </button>
+                </div>
+                <div class="navbar-center w-1/2 justify-center">
+                    <div class="nunito text-center tracking-tight">{book['title']}</div>
+                </div>
+                <div class="navbar-end w-1/4">
+                    <button class="btn btn-primary btn-square md:btn-block nunito">🥰 Edit Mood</button>
+                </div>
+            </div>
+        </main>
+        """,
         unsafe_allow_html=True
     )
