@@ -30,7 +30,7 @@ st.set_page_config(
 )
 
 # Define the UI layout
-st.markdown("<h1 style='text-align: center;'> 📖 Dork's Data Digest - Discover top-rated books based on Data Science topics</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'> 📖 Dork's Data Digest</h1>", unsafe_allow_html=True)
 st.markdown("<div style='margin-bottom:20px;'></div>", unsafe_allow_html=True)  # Add space between title and subtitle
 st.markdown("<h3 style='text-align: center; margin-bottom: 20px;'>Select a Data Science topic below to explore top-rated books:</h3>", unsafe_allow_html=True)
 
