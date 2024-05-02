@@ -1,3 +1,6 @@
+To create separate pages for each cluster, you can define a function for each cluster page. Here's how you can modify the code:
+
+```python
 import streamlit as st
 import pandas as pd
 
@@ -28,32 +31,55 @@ dfs = {
     "Mathematics": math_df
 }
 
-# Define the UI layout
-def display_homepage():
-    st.markdown("<h1 style='text-align: center;'>📖 Dork's Data Digest</h1>", unsafe_allow_html=True)
-    st.markdown("<h3 style='text-align: center;'>Discover top-rated books based for Data Science</h3>", unsafe_allow_html=True)
-    
-    num_clusters = len(dfs)
-    clusters_per_column = (num_clusters + 2) // 3  # Calculate clusters per column with rounding up
-    
-    col1, col2, col3 = st.columns(3)  # Create three columns
-    
-    clusters = list(dfs.keys())
-    for i, cluster in enumerate(clusters):
-        if i < clusters_per_column:
-            col1.button(cluster)
-        elif i < 2 * clusters_per_column:
-            col2.button(cluster)
-        else:
-            col3.button(cluster)
+# Define functions for each cluster page
+def data_analysis_page():
+    st.title("Data Analysis Cluster Page")
+    st.write(dfs["Data Analysis"])
 
-# Define your page functions
-def home():
-    display_homepage()
+def machine_learning_page():
+    st.title("Machine Learning Cluster Page")
+    st.write(dfs["Machine Learning"])
 
-def cluster_page(cluster_name):
-    st.title(f"{cluster_name} Cluster Page")
-    st.write(dfs[cluster_name])
+def deep_learning_page():
+    st.title("Deep Learning Cluster Page")
+    st.write(dfs["Deep Learning"])
+
+def computer_vision_page():
+    st.title("Computer Vision Cluster Page")
+    st.write(dfs["Computer Vision"])
+
+def nlp_page():
+    st.title("Natural Language Processing Cluster Page")
+    st.write(dfs["Natural Language Processing"])
+
+def ai_page():
+    st.title("Artificial Intelligence Cluster Page")
+    st.write(dfs["Artificial Intelligence"])
+
+def math_page():
+    st.title("Mathematics Cluster Page")
+    st.write(dfs["Mathematics"])
 
 # Run the app
-home()
+selected_page = st.sidebar.selectbox("Select Page", ["Home", "Data Analysis", "Machine Learning", "Deep Learning", "Computer Vision", "Natural Language Processing", "Artificial Intelligence", "Mathematics"])
+
+if selected_page == "Home":
+    st.title("Home Page")
+    st.write("Welcome to the home page!")
+elif selected_page == "Data Analysis":
+    data_analysis_page()
+elif selected_page == "Machine Learning":
+    machine_learning_page()
+elif selected_page == "Deep Learning":
+    deep_learning_page()
+elif selected_page == "Computer Vision":
+    computer_vision_page()
+elif selected_page == "Natural Language Processing":
+    nlp_page()
+elif selected_page == "Artificial Intelligence":
+    ai_page()
+elif selected_page == "Mathematics":
+    math_page()
+``` 
+
+With this code, each cluster page function is called when the corresponding cluster name is selected from the sidebar.
