@@ -1,6 +1,14 @@
 import streamlit as st
 import pandas as pd
 
+# Set page title and page layout
+st.set_page_config(
+    page_title="Dork's Data Digest - Discover top-rated books based on Data Science topics",
+    page_icon=":books:",
+    layout="wide",
+    initial_sidebar_state="expanded"  # Expand the sidebar by default
+)
+
 # Load the DataFrame from CSV files
 data_analysis_df = pd.read_csv('datasets/Data Analysis.csv')
 machine_learning_df = pd.read_csv('datasets/Machine Learning.csv')
@@ -23,7 +31,7 @@ dfs = {
 
 # Define the UI layout
 def display_homepage():
-    st.title("Dork's Data Digest")
+    st.title("📖 Dork's Data Digest")
     st.subheader("Discover top-rated books based for Data Science")
     for cluster in dfs.keys():
         if st.button(cluster):
