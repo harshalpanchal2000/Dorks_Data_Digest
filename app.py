@@ -28,6 +28,22 @@ dfs = {
     "Mathematics": math_df
 }
 
+# Define the UI layout for the home page
+def display_homepage():
+    st.title("📖 Dork's Data Digest")
+    st.subheader("Discover top-rated books based for Data Science")
+
+    # Organize cluster buttons into three columns
+    col1, col2, col3 = st.columns(3)
+    for cluster in dfs.keys():
+        if cluster in ["Data Analysis", "Machine Learning", "Deep Learning"]:
+            col1.button(f"{cluster}: {get_cluster_emoticon(cluster)} {cluster}")
+        elif cluster in ["Computer Vision", "Natural Language Processing", "Artificial Intelligence"]:
+            col2.button(f"{cluster}: {get_cluster_emoticon(cluster)} {cluster}")
+        else:
+            col3.button(f"{cluster}: {get_cluster_emoticon(cluster)} {cluster}")
+
+# Define functions for each cluster page...
 # Define functions for each cluster page
 def data_analysis_page():
     st.title("Data Analysis Cluster Page")
@@ -57,23 +73,42 @@ def math_page():
     st.title("Mathematics Cluster Page")
     st.write(dfs["Mathematics"])
 
+# Define the homepage layout
+def display_homepage():
+    st.title("📖 Dork's Data Digest")
+    st.subheader("Discover top-rated books based for Data Science")
+    col1, col2, col3 = st.columns(3)
+    for cluster, df in dfs.items():
+        if cluster == "Data Analysis":
+            col1.write(f"**{cluster}**")
+        elif cluster == "Machine Learning":
+            col2.write(f"**{cluster}**")
+        elif cluster == "Deep Learning":
+            col3.write(f"**{cluster}**")
+        else:
+            col1.write(f"**{cluster}**")
+            
 # Run the app
-selected_page = st.sidebar.selectbox("Select Page", ["Home", "Data Analysis", "Machine Learning", "Deep Learning", "Computer Vision", "Natural Language Processing", "Artificial Intelligence", "Mathematics"])
+def main():
+    page = st.radio("Select Page", ["Home", "Data Analysis", "Machine Learning", "Deep Learning",
+                                    "Computer Vision", "Natural Language Processing",
+                                    "Artificial Intelligence", "Mathematics"])
+    if page == "Home":
+        display_homepage()
+    elif page == "Data Analysis":
+        data_analysis_page()
+    elif page == "Machine Learning":
+        machine_learning_page()
+    elif page == "Deep Learning":
+        deep_learning_page()
+    elif page == "Computer Vision":
+        computer_vision_page()
+    elif page == "Natural Language Processing":
+        nlp_page()
+    elif page == "Artificial Intelligence":
+        ai_page()
+    elif page == "Mathematics":
+        math_page()
 
-if selected_page == "Home":
-    st.title("Home Page")
-    st.write("Welcome to the home page!")
-elif selected_page == "Data Analysis":
-    data_analysis_page()
-elif selected_page == "Machine Learning":
-    machine_learning_page()
-elif selected_page == "Deep Learning":
-    deep_learning_page()
-elif selected_page == "Computer Vision":
-    computer_vision_page()
-elif selected_page == "Natural Language Processing":
-    nlp_page()
-elif selected_page == "Artificial Intelligence":
-    ai_page()
-elif selected_page == "Mathematics":
-    math_page()
+if __name__ == "__main__":
+    main()
