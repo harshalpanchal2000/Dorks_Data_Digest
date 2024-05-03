@@ -6,7 +6,7 @@ def machine_learning_page():
     st.subheader("Discover top-rated books for Machine Learning")
     
     # Load data
-    machine_learning_books_df = pd.read_csv('datasets/Machine Learning Books.csv')
+    machine_learning_books_df = pd.read_csv('datasets/Machine Learning.csv')
     
     # Display data
     st.write(machine_learning_books_df)
