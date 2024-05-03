@@ -61,12 +61,12 @@ def math_page():
 def display_homepage():
     st.title("📖 Dork's Data Digest")
     st.subheader("Discover top-rated books based for Data Science")
-    col1, col2, col3 = st.columns(3)
-    for cluster, df in dfs.items():
-        if cluster in ["Data Analysis", "Machine Learning", "Deep Learning", "Computer Vision"]:
-            col1.write(f"**{cluster}**")
-        else:
-            col2.write(f"**{cluster}**")
+   # col1, col2, col3 = st.columns(3)
+    #for cluster, df in dfs.items():
+       # if cluster in ["Data Analysis", "Machine Learning", "Deep Learning", "Computer Vision"]:
+        #    col1.write(f"**{cluster}**")
+        #else:
+          #  col2.write(f"**{cluster}**")
 
 # Run the app
 def main():
