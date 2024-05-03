@@ -1,5 +1,6 @@
 import streamlit as st
-from pages import data_analysis_page, machine_learning_page, deep_learning_page, computer_vision_page, nlp_page, ai_page, math_page
+from pages.data_analysis_page import data_analysis_page
+#from pages import data_analysis_page, machine_learning_page, deep_learning_page, computer_vision_page, nlp_page, ai_page, math_page
 
 # Set page title and page layout
 st.set_page_config(
