@@ -36,7 +36,7 @@ def display_homepage():
     st.markdown(
         "<h1 style='text-align: center;'>📖 Dork's Data Digest</h1>"
         "<h3 style='text-align: center;'>Discover top-rated books based for Data Science</h3>"
-        "<p style='text-align: center;'>Select your cluster page:</p>",
+        "<p style='text-align: center;'>Select the topic you want to study</p>",
         unsafe_allow_html=True
     )
 
@@ -65,7 +65,7 @@ def display_homepage():
                 display_page(cluster)
 
     st.markdown(
-        "<div style='position: fixed; bottom: 20px; width: 100%; text-align: left; padding-left: 5%;'>"
+        "<div style='position: fixed; bottom: 20px; width: 100%; text-align: left; padding-left: 40%;'>"
         "<p>Built by <a href='https://www.linkedin.com/in/harshal-panchal/' target='_blank'>Harshal Panchal</a></p>"
         "</div>",
         unsafe_allow_html=True
