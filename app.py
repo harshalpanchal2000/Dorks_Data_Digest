@@ -60,9 +60,8 @@ def display_homepage():
         else:
             button_col = col3
         
-        with button_col:
-            if button_col.button(f"{icon} {cluster}", key=f"{cluster}_button"):
-                display_page(cluster)
+        if button_col.button(f"{icon} {cluster}", key=f"{cluster}_button"):
+            display_page(cluster)
 
     st.markdown(
         "<div style='position: fixed; bottom: 20px; width: 100%; text-align: left; padding-left: 5%;'>"
