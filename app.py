@@ -63,21 +63,17 @@ def display_homepage():
     st.subheader("Discover top-rated books based for Data Science")
     col1, col2, col3 = st.columns(3)
     for cluster, df in dfs.items():
-        if cluster == "Data Analysis":
+        if cluster in ["Data Analysis", "Machine Learning", "Deep Learning", "Computer Vision"]:
             col1.write(f"**{cluster}**")
-        elif cluster == "Machine Learning":
-            col2.write(f"**{cluster}**")
-        elif cluster == "Deep Learning":
-            col3.write(f"**{cluster}**")
         else:
-            col1.write(f"**{cluster}**")
+            col2.write(f"**{cluster}**")
 
 # Run the app
 def main():
     display_homepage()
 
     # Add links to cluster pages
-    st.write("<h1>What are you trying to learn ?</h1>")
+    st.write("Select your cluster page:")
     if st.button("Data Analysis"):
         data_analysis_page()
     if st.button("Machine Learning"):
