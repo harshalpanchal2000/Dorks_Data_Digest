@@ -49,12 +49,15 @@ def display_homepage():
 
     col1, col2, col3 = st.columns(3)
 
-    for cluster in clusters:
-        if col1.button(cluster):
-            display_page(cluster)
-        elif col2.button(cluster):
-            display_page(cluster)
-        elif col3.button(cluster):
+    for i, cluster in enumerate(clusters):
+        if i % 3 == 0:
+            button_col = col1
+        elif i % 3 == 1:
+            button_col = col2
+        else:
+            button_col = col3
+        
+        if button_col.button(cluster, key=f"{cluster}_button"):
             display_page(cluster)
 
 # Run the app
