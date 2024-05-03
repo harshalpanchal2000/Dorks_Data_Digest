@@ -28,22 +28,6 @@ dfs = {
     "Mathematics": math_df
 }
 
-# Define the UI layout for the home page
-def display_homepage():
-    st.title("📖 Dork's Data Digest")
-    st.subheader("Discover top-rated books based for Data Science")
-
-    # Organize cluster buttons into three columns
-    col1, col2, col3 = st.columns(3)
-    for cluster in dfs.keys():
-        if cluster in ["Data Analysis", "Machine Learning", "Deep Learning"]:
-            col1.button(f"{cluster}: {get_cluster_emoticon(cluster)} {cluster}")
-        elif cluster in ["Computer Vision", "Natural Language Processing", "Artificial Intelligence"]:
-            col2.button(f"{cluster}: {get_cluster_emoticon(cluster)} {cluster}")
-        else:
-            col3.button(f"{cluster}: {get_cluster_emoticon(cluster)} {cluster}")
-
-# Define functions for each cluster page...
 # Define functions for each cluster page
 def data_analysis_page():
     st.title("Data Analysis Cluster Page")
@@ -87,27 +71,26 @@ def display_homepage():
             col3.write(f"**{cluster}**")
         else:
             col1.write(f"**{cluster}**")
-            
+
 # Run the app
 def main():
-    page = st.radio("Select Page", ["Home", "Data Analysis", "Machine Learning", "Deep Learning",
-                                    "Computer Vision", "Natural Language Processing",
-                                    "Artificial Intelligence", "Mathematics"])
-    if page == "Home":
-        display_homepage()
-    elif page == "Data Analysis":
+    display_homepage()
+
+    # Add links to cluster pages
+    st.write("Select your cluster page:")
+    if st.button("Data Analysis"):
         data_analysis_page()
-    elif page == "Machine Learning":
+    if st.button("Machine Learning"):
         machine_learning_page()
-    elif page == "Deep Learning":
+    if st.button("Deep Learning"):
         deep_learning_page()
-    elif page == "Computer Vision":
+    if st.button("Computer Vision"):
         computer_vision_page()
-    elif page == "Natural Language Processing":
+    if st.button("Natural Language Processing"):
         nlp_page()
-    elif page == "Artificial Intelligence":
+    if st.button("Artificial Intelligence"):
         ai_page()
-    elif page == "Mathematics":
+    if st.button("Mathematics"):
         math_page()
 
 if __name__ == "__main__":
