@@ -63,7 +63,7 @@ def display_homepage():
         if button_col.button(f"{icon} {cluster}", key=f"{cluster}_button"):
             display_page(cluster)
 
-  st.markdown(
+      st.markdown(
         "<div style='position: fixed; bottom: 20px; width: 100%; text-align: left; padding-left: 5%;'>"
         "<p>Built by <a href='https://www.linkedin.com/in/harshal-panchal/' target='_blank'>Harshal Panchal</a></p>"
         "</div>",
