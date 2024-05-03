@@ -6,7 +6,7 @@ def data_analysis_page():
     st.subheader("Discover top-rated books for Data Analysis")
     
     # Load data
-    data_analysis_books_df = pd.read_csv('datasets/Data Analysis Books.csv')
+    data_analysis_books_df = pd.read_csv('datasets/Data Analysis.csv')
     
     # Display data
     st.write(data_analysis_books_df)
