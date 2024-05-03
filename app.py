@@ -1,6 +1,12 @@
 import streamlit as st
 from pages.data_analysis_page import data_analysis_page
-#from pages import data_analysis_page, machine_learning_page, deep_learning_page, computer_vision_page, nlp_page, ai_page, math_page
+from pages.data_analysis_page import data_analysis_page
+from pages.machine_learning_page import machine_learning_page
+from pages.deep_learning_page import deep_learning_page
+from pages.computer_vision_page import computer_vision_page
+from pages.nlp_page import nlp_page
+from pages.ai_page import ai_page
+from pages.math_page import math_page
 
 # Set page title and page layout
 st.set_page_config(
@@ -11,9 +17,7 @@ st.set_page_config(
 
 # Define a function to display the selected page
 def display_page(page):
-    if page == "Home":
-        home_page()
-    elif page == "Data Analysis":
+    if page == "Data Analysis":
         data_analysis_page()
     elif page == "Machine Learning":
         machine_learning_page()
