@@ -46,7 +46,7 @@ def display_homepage():
         ("Deep Learning", "🧠"),
         ("Computer Vision", "👁️"),
         ("Natural Language Processing", "🗣️"),
-        ("Artificial Intelligence", "🧠"),
+        ("Artificial Intelligence", "✨"),
         ("Mathematics", "🧮")
     ]
 
