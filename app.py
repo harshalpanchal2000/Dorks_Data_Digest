@@ -36,7 +36,7 @@ def display_homepage():
     st.markdown(
         "<h1 style='text-align: center;'>📖 Dork's Data Digest</h1>"
         "<h3 style='text-align: center;'>Discover top-rated books based for Data Science</h3>"
-        "<p style='text-align: center;'>Select the topic you want to study</p>",
+        "<p style='text-align: center;'>Select your cluster page:</p>",
         unsafe_allow_html=True
     )
 
@@ -50,7 +50,7 @@ def display_homepage():
         ("Mathematics", "🧮")
     ]
 
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3 = st.beta_columns(3)
 
     for i, (cluster, icon) in enumerate(clusters):
         if i % 3 == 0:
@@ -60,9 +60,10 @@ def display_homepage():
         else:
             button_col = col3
         
-        with button_col:
-            if button_col.button(f"{icon} {cluster}", key=f"{cluster}_button"):
-                display_page(cluster)
+        if button_col.button(f"{icon} {cluster}", key=f"{cluster}_button"):
+            st.markdown("---")  # Add a horizontal line
+            display_page(cluster)
+            st.markdown("---")  # Add a horizontal line
 
     st.markdown(
         "<div style='position: fixed; bottom: 20px; width: 100%; text-align: left; padding-left: 40%;'>"
