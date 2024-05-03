@@ -6,7 +6,7 @@ def deep_learning_page():
     st.subheader("Discover top-rated books for Deep Learning")
     
     # Load data
-    deep_learning_books_df = pd.read_csv('datasets/Deep Learning Books.csv')
+    deep_learning_books_df = pd.read_csv('datasets/Deep Learning.csv')
     
     # Display data
     st.write(deep_learning_books_df)
