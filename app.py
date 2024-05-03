@@ -38,18 +38,18 @@ def display_homepage():
     st.write("Select your cluster page:")
 
     clusters = [
-        "Data Analysis",
-        "Machine Learning",
-        "Deep Learning",
-        "Computer Vision",
-        "Natural Language Processing",
-        "Artificial Intelligence",
-        "Mathematics"
+        ("Data Analysis", "📊"),
+        ("Machine Learning", "🤖"),
+        ("Deep Learning", "🧠"),
+        ("Computer Vision", "👁️"),
+        ("Natural Language Processing", "🗣️"),
+        ("Artificial Intelligence", "🧠"),
+        ("Mathematics", "🧮")
     ]
 
     col1, col2, col3 = st.columns(3)
 
-    for i, cluster in enumerate(clusters):
+    for i, (cluster, icon) in enumerate(clusters):
         if i % 3 == 0:
             button_col = col1
         elif i % 3 == 1:
@@ -57,7 +57,7 @@ def display_homepage():
         else:
             button_col = col3
         
-        if button_col.button(cluster, key=f"{cluster}_button"):
+        if button_col.button(f"{icon} {cluster}", key=f"{cluster}_button"):
             display_page(cluster)
 
 # Run the app
