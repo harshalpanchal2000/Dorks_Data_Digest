@@ -77,7 +77,7 @@ def main():
     display_homepage()
 
     # Add links to cluster pages
-    st.write("Select your cluster page:")
+    st.write("<h1>What are you trying to learn ?</h1>")
     if st.button("Data Analysis"):
         data_analysis_page()
     if st.button("Machine Learning"):
