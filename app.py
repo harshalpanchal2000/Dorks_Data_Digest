@@ -61,12 +61,12 @@ def display_homepage():
             button_col = col3
         
         with button_col:
-            st.write("   ")  # Add left padding
+            st.write("&nbsp;"*5)  # Add left padding using HTML space
             if button_col.button(f"{icon} {cluster}", key=f"{cluster}_button"):
                 display_page(cluster)
 
     st.markdown(
-        "<div style='position: fixed; bottom: 20px; width: 100%; text-align: left; padding-left: 5%;'>"
+        "<div style='position: fixed; bottom: 20px; width: 100%; text-align: left; padding-left: 40%;'>"
         "<p>Built by <a href='https://www.linkedin.com/in/harshal-panchal/' target='_blank'>Harshal Panchal</a></p>"
         "</div>",
         unsafe_allow_html=True
