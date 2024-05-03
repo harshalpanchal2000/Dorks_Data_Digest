@@ -67,8 +67,7 @@ def display_homepage():
         "<div style='position: fixed; bottom: 20px; width: 100%; text-align: left; padding-left: 5%;'>"
         "<p>Built by <a href='https://www.linkedin.com/in/harshal-panchal/' target='_blank'>Harshal Panchal</a></p>"
         "</div>",
-        unsafe_allow_html=True
-    )
+        unsafe_allow_html=True)
 
 # Run the app
 def main():
