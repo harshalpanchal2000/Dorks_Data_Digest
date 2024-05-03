@@ -46,7 +46,7 @@ def display_homepage():
         ("Deep Learning", "🧠"),
         ("Computer Vision", "👁️"),
         ("Natural Language Processing", "🗣️"),
-        ("Artificial Intelligence", "✨"),
+        ("Artificial Intelligence", "✨"),  # Changed emoticon for AI
         ("Mathematics", "🧮")
     ]
 
@@ -62,13 +62,13 @@ def display_homepage():
         
         if button_col.button(f"{icon} {cluster}", key=f"{cluster}_button"):
             display_page(cluster)
-  
-     st.markdown(
+
+    st.markdown(
         "<div style='position: fixed; bottom: 20px; width: 100%; text-align: center;'>"
         "<p>Built by <a href='https://www.linkedin.com/in/harshal-panchal/' target='_blank'>Harshal Panchal</a></p>"
         "</div>",
         unsafe_allow_html=True
-     )
+    )
 
 # Run the app
 def main():
