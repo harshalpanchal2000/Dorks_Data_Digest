@@ -1,6 +1,5 @@
 import streamlit as st
 from pages.data_analysis_page import data_analysis_page
-from pages.data_analysis_page import data_analysis_page
 from pages.machine_learning_page import machine_learning_page
 from pages.deep_learning_page import deep_learning_page
 from pages.computer_vision_page import computer_vision_page
@@ -38,24 +37,24 @@ def display_homepage():
     st.subheader("Discover top-rated books based for Data Science")
     st.write("Select your cluster page:")
 
-    clusters = {
-        "Data Analysis": "📊",
-        "Machine Learning": "🤖",
-        "Deep Learning": "🧠",
-        "Computer Vision": "👁️",
-        "Natural Language Processing": "🗣️",
-        "Artificial Intelligence": "🧠",
-        "Mathematics": "🧮"
-    }
+    clusters = [
+        "Data Analysis",
+        "Machine Learning",
+        "Deep Learning",
+        "Computer Vision",
+        "Natural Language Processing",
+        "Artificial Intelligence",
+        "Mathematics"
+    ]
 
     col1, col2, col3 = st.columns(3)
 
-    for cluster, icon in clusters.items():
-        if col1.button(f"{icon} {cluster}"):
+    for cluster in clusters:
+        if col1.button(cluster):
             display_page(cluster)
-        elif col2.button(f"{icon} {cluster}"):
+        elif col2.button(cluster):
             display_page(cluster)
-        elif col3.button(f"{icon} {cluster}"):
+        elif col3.button(cluster):
             display_page(cluster)
 
 # Run the app
