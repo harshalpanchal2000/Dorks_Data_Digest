@@ -66,22 +66,18 @@ def display_homepage():
 def main():
     display_homepage()
 
-    # Add links to cluster pages with emoticons
+    # Add links to cluster pages with emoticons in three columns
     st.write("Select your cluster page:")
-    if st.button("📊 Data Analysis"):
-        data_analysis_page()
-    if st.button("⚙️ Machine Learning"):
-        machine_learning_page()
-    if st.button("🧠 Deep Learning"):
-        deep_learning_page()
-    if st.button("👁️ Computer Vision"):
-        computer_vision_page()
-    if st.button("🗣️ Natural Language Processing"):
-        nlp_page()
-    if st.button("🤖 Artificial Intelligence"):
-        ai_page()
-    if st.button("➗ Mathematics"):
-        math_page()
+    clusters = list(dfs.keys())
+    num_clusters = len(clusters)
+    num_columns = 3
+    clusters_per_column = num_clusters // num_columns
+    for i in range(num_columns):
+        with st.sidebar:
+            column_clusters = clusters[i * clusters_per_column: (i + 1) * clusters_per_column]
+            for cluster in column_clusters:
+                if st.button(cluster):
+                    globals()[cluster.lower().replace(" ", "_") + "_page"]()
 
 if __name__ == "__main__":
     main()
