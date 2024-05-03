@@ -60,14 +60,17 @@ def display_homepage():
         else:
             button_col = col3
         
-        if button_col.button(f"{icon} {cluster}", key=f"{cluster}_button"):
-            display_page(cluster)
+        with button_col:
+            st.write("   ")  # Add left padding
+            if button_col.button(f"{icon} {cluster}", key=f"{cluster}_button"):
+                display_page(cluster)
 
     st.markdown(
-        "<div style='position: fixed; bottom: 20px; width: 100%; text-align: left; padding-left: 39%;'>"
+        "<div style='position: fixed; bottom: 20px; width: 100%; text-align: left; padding-left: 5%;'>"
         "<p>Built by <a href='https://www.linkedin.com/in/harshal-panchal/' target='_blank'>Harshal Panchal</a></p>"
         "</div>",
-        unsafe_allow_html=True)
+        unsafe_allow_html=True
+    )
 
 # Run the app
 def main():
