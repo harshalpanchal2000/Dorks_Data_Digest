@@ -33,9 +33,12 @@ def display_page(page):
 
 # Define the homepage layout
 def display_homepage():
-    st.title("📖 Dork's Data Digest")
-    st.subheader("Discover top-rated books based for Data Science")
-    st.write("Select your cluster page:")
+    st.markdown(
+        "<h1 style='text-align: center;'>📖 Dork's Data Digest</h1>"
+        "<h3 style='text-align: center;'>Discover top-rated books based for Data Science</h3>"
+        "<p style='text-align: center;'>Select your cluster page:</p>",
+        unsafe_allow_html=True
+    )
 
     clusters = [
         ("Data Analysis", "📊"),
