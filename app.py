@@ -8,21 +8,6 @@ from pages.ai_page import ai_page
 from pages.math_page import math_page
 
 
-page_bg_img = """
-<style>
-[data-testid="stAppViewBlockContainer"] {
-background-color: #ffffff;
-opacity: 0.6;
-background-image: radial-gradient(circle at center center, #ffdc53, #ffffff),
-repeating-radial-gradient(circle at center center, #ffdc53, #ffdc53, 10px, transparent 20px, transparent 10px);
-background-blend-mode: normal;
-}
-</style>
-"""
-
-# Apply the custom CSS style to set the background image
-st.markdown(page_bg_img, unsafe_allow_html=True)
-
 # Set page title and page layout
 st.set_page_config(
     page_title="Dork's Data Digest - Discover top-rated books based on Data Science topics",
