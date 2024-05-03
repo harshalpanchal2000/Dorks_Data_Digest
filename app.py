@@ -61,32 +61,26 @@ def math_page():
 def display_homepage():
     st.title("📖 Dork's Data Digest")
     st.subheader("Discover top-rated books based for Data Science")
-   # col1, col2, col3 = st.columns(3)
-    #for cluster, df in dfs.items():
-       # if cluster in ["Data Analysis", "Machine Learning", "Deep Learning", "Computer Vision"]:
-        #    col1.write(f"**{cluster}**")
-        #else:
-          #  col2.write(f"**{cluster}**")
 
 # Run the app
 def main():
     display_homepage()
 
-    # Add links to cluster pages
+    # Add links to cluster pages with emoticons
     st.write("Select your cluster page:")
-    if st.button("Data Analysis"):
+    if st.button("📊 Data Analysis"):
         data_analysis_page()
-    if st.button("Machine Learning"):
+    if st.button("⚙️ Machine Learning"):
         machine_learning_page()
-    if st.button("Deep Learning"):
+    if st.button("🧠 Deep Learning"):
         deep_learning_page()
-    if st.button("Computer Vision"):
+    if st.button("👁️ Computer Vision"):
         computer_vision_page()
-    if st.button("Natural Language Processing"):
+    if st.button("🗣️ Natural Language Processing"):
         nlp_page()
-    if st.button("Artificial Intelligence"):
+    if st.button("🤖 Artificial Intelligence"):
         ai_page()
-    if st.button("Mathematics"):
+    if st.button("➗ Mathematics"):
         math_page()
 
 if __name__ == "__main__":
