@@ -6,7 +6,7 @@ def data_analysis_page():
     # st.subheader("Discover top-rated books for Data Analysis")
     
     # Load data
-    df = pd.read_csv("datasets/Data Analysis.csv)"
+    df = pd.read_csv("datasets/data_analysis.csv")
         
     # Get the theme background color
     background_color = st.get_option("theme.backgroundColor")
