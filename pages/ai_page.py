@@ -3,10 +3,9 @@ import pandas as pd
 
 def ai_page():
     st.title("Artificial Intelligence Books")
-    st.subheader("Discover top-rated books for Artificial Intelligence")
     
     # Load the dataset
-    df = pd.read_csv("Artificial Intelligence.csv")
+    df = pd.read_csv("Machine Learning.csv")
     
     # Get the theme background color
     background_color = st.get_option("theme.backgroundColor")
@@ -105,4 +104,4 @@ def ai_page():
             st.session_state.index = min(st.session_state.index + 1, len(df) - 1)
 
 if __name__ == "__main__":
-    main()
+    ai_page()
