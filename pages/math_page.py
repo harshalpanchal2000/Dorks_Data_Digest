@@ -4,7 +4,7 @@ import pandas as pd
 def math_page():
     st.title("Mathematics Books")
 # Load the dataset
-    df = pd.read_csv("Machine Learning.csv")
+    df = pd.read_csv("Mathematics.csv")
     
     # Get the theme background color
     background_color = st.get_option("theme.backgroundColor")
