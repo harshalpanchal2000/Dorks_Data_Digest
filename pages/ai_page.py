@@ -6,7 +6,7 @@ def ai_page():
     st.subheader("Discover top-rated books for Artificial Intelligence")
     
     # Load the dataset
-    df = pd.read_csv("Machine Learning.csv")
+    df = pd.read_csv("Artificial Intelligence.csv")
     
     # Get the theme background color
     background_color = st.get_option("theme.backgroundColor")
