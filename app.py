@@ -75,5 +75,9 @@ def display_homepage():
 def main():
     display_homepage()
 
+with st.sidebar():
+    # Leave this empty to hide the sidebar for this portion of the app
+    pass
+
 if __name__ == "__main__":
     main()
