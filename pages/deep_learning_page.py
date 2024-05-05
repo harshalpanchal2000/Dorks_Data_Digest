@@ -3,7 +3,7 @@ import pandas as pd
 
 def deep_learning_page():
     st.title("Deep Learning Books")
-    st.subheader("Discover top-rated books for Deep Learning")
+    #st.subheader("Discover top-rated books for Deep Learning")
     
     # Load data
     df = pd.read_csv("datasets/Deep Learning.csv")
