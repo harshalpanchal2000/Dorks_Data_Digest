@@ -21,7 +21,6 @@ def ai_page():
                 margin-bottom: 2rem;
             }}
             .card {{
-                background-color: #ffffff;
                 border-radius: 10px;
                 box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
                 padding: 1rem;
