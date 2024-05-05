@@ -15,6 +15,15 @@ st.set_page_config(
     layout="wide"
 )
 
+# Create an empty container for the sidebar
+sidebar_container = st.empty()
+
+# Add components to the sidebar container
+with sidebar_container:
+    # Add components here
+    pass  # Leave this empty if you want to hide the sidebar
+
+
 # Define a function to display the selected page
 def display_page(page):
     if page == "Data Analysis":
@@ -74,10 +83,6 @@ def display_homepage():
 # Run the app
 def main():
     display_homepage()
-
-with st.sidebar():
-    # Leave this empty to hide the sidebar for this portion of the app
-    pass
 
 if __name__ == "__main__":
     main()
