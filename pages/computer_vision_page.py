@@ -3,7 +3,6 @@ import pandas as pd
 
 def computer_vision_page():
     st.title("Computer Vision Books")
-    st.subheader("Discover top-rated books for Computer Vision")
     
     # Load the dataset
     df = pd.read_csv("Computer Vision.csv")
