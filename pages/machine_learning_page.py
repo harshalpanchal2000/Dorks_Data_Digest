@@ -102,5 +102,5 @@ def machine_learning_page():
         if st.button("Next ➡️", key="next_button"):
             st.session_state.index = min(st.session_state.index + 1, len(df) - 1)
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     machine_learning_page()
