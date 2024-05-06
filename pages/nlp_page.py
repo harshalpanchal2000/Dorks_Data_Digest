@@ -6,7 +6,7 @@ def nlp_page():
     #st.subheader("Discover top-rated books for Natural Language Processing")
 
     # Load the dataset
-    df = pd.read_csv("Natural Language Processing.csv")
+    df = pd.read_csv("datasets/Natural Language Processing.csv")
     
     # Get the theme background color
     background_color = st.get_option("theme.backgroundColor")
