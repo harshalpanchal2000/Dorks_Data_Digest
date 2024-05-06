@@ -99,8 +99,11 @@ def ai_page():
     if col1.button("⬅️ Previous"):
         st.session_state.index = max(st.session_state.index - 1, 0)
     with col3:
-        if st.button("Next ➡️", key="next_button"):
-            st.session_state.index = min(st.session_state.index + 1, len(df) - 1)
+        if st.session_state.index < len(df) - 1:
+            if st.button("Next ➡️", key="next_button"):
+                st.session_state.index = min(st.session_state.index + 1, len(df) - 1)
+        else:
+            st.button("Next ➡️", disabled=True)
 
 if __name__ == "__main__":
     ai_page()
