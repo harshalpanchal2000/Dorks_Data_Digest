@@ -8,6 +8,14 @@ def display_homepage():
         unsafe_allow_html=True
     )
 
+    st.markdown(
+        """
+        This is your data science book recommendation app, where you will find top-rated books related to Data Science. 
+        Whether you're interested in Data Analysis, Machine Learning, Deep Learning, Computer Vision, Natural Language Processing, Artificial Intelligence, or Mathematics, 
+        we've got you covered! Simply select the type of book you'd like to read from the sidebar.
+        """,
+        unsafe_allow_html=False
+    )
 
     st.markdown(
         "<div style='position: fixed; bottom: 20px; width: 100%; text-align: left; padding-left: 40%;'>"
@@ -18,6 +26,9 @@ def display_homepage():
 
 # Run the app
 def main():
+    st.sidebar.markdown("### Select Book Type")
+    book_type = st.sidebar.selectbox("Book Type", ["Data Analysis", "Machine Learning", "Deep Learning", "Computer Vision", "Natural Language Processing", "Artificial Intelligence", "Mathematics"])
+
     display_homepage()
 
 if __name__ == "__main__":
