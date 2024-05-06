@@ -22,8 +22,13 @@ def display_homepage():
     col1, col2, col3 = st.columns(3)
 
     for cluster, icon, page in clusters:
-        if col1.button(f"{icon} {cluster}", key=f"{cluster}_button"):
-            st.experimental_set_query_params(page=cluster)
+        if cluster == "Machine Learning":
+            if col1.button(f"{icon} {cluster}", key=f"{cluster}_button"):
+                st.markdown("[Redirecting...](https://dorksdataadigest.streamlit.app/machine_learning_page?page=Machine+Learning)")
+                st.experimental_rerun()
+        else:
+            if col1.button(f"{icon} {cluster}", key=f"{cluster}_button"):
+                st.experimental_set_query_params(page=cluster)
 
     st.markdown(
         "<div style='position: fixed; bottom: 20px; width: 100%; text-align: left; padding-left: 40%;'>"
