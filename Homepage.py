@@ -1,38 +1,5 @@
 import streamlit as st
-from pages.data_analysis_page import data_analysis_page
-from pages.machine_learning_page import machine_learning_page
-from pages.deep_learning_page import deep_learning_page
-from pages.computer_vision_page import computer_vision_page
-from pages.nlp_page import nlp_page
-from pages.ai_page import ai_page
-from pages.math_page import math_page
-
-
-# Set page title and page layout
-st.set_page_config(
-    page_title="Dork's Data Digest - Discover top-rated books based on Data Science topics",
-    page_icon=":books:",
-    layout="wide"
-)
-
-st.sidebar.success("Select")
-
-# Define a function to display the selected page
-def display_page(page):
-    if page == "Data Analysis":
-        data_analysis_page()
-    elif page == "Machine Learning":
-        machine_learning_page()
-    elif page == "Deep Learning":
-        deep_learning_page()
-    elif page == "Computer Vision":
-        computer_vision_page()
-    elif page == "Natural Language Processing":
-        nlp_page()
-    elif page == "Artificial Intelligence":
-        ai_page()
-    elif page == "Mathematics":
-        math_page()
+from pages import data_analysis_page, machine_learning_page, deep_learning_page, computer_vision_page, nlp_page, ai_page, math_page
 
 # Define the homepage layout
 def display_homepage():
@@ -43,27 +10,20 @@ def display_homepage():
     )
 
     clusters = [
-        ("Data Analysis", "📊"),
-        ("Machine Learning", "🤖"),
-        ("Deep Learning", "🧠"),
-        ("Computer Vision", "👁️"),
-        ("Natural Language Processing", "🗣️"),
-        ("Artificial Intelligence", "✨"),  # Changed emoticon for AI
-        ("Mathematics", "🧮")
+        ("Data Analysis", "📊", data_analysis_page),
+        ("Machine Learning", "🤖", machine_learning_page),
+        ("Deep Learning", "🧠", deep_learning_page),
+        ("Computer Vision", "👁️", computer_vision_page),
+        ("Natural Language Processing", "🗣️", nlp_page),
+        ("Artificial Intelligence", "✨", ai_page),
+        ("Mathematics", "🧮", math_page)
     ]
 
     col1, col2, col3 = st.columns(3)
 
-    for i, (cluster, icon) in enumerate(clusters):
-        if i % 3 == 0:
-            button_col = col1
-        elif i % 3 == 1:
-            button_col = col2
-        else:
-            button_col = col3
-        
-        if button_col.button(f"{icon} {cluster}", key=f"{cluster}_button"):
-            display_page(cluster)
+    for cluster, icon, page in clusters:
+        if col1.button(f"{icon} {cluster}", key=f"{cluster}_button"):
+            st.experimental_set_query_params(page=cluster)
 
     st.markdown(
         "<div style='position: fixed; bottom: 20px; width: 100%; text-align: left; padding-left: 40%;'>"
@@ -75,6 +35,24 @@ def display_homepage():
 # Run the app
 def main():
     display_homepage()
+
+    # Check for page parameter in the URL and display the corresponding page
+    page = st.experimental_get_query_params().get("page", None)
+    if page:
+        if page == "Data Analysis":
+            data_analysis_page.main()
+        elif page == "Machine Learning":
+            machine_learning_page.main()
+        elif page == "Deep Learning":
+            deep_learning_page.main()
+        elif page == "Computer Vision":
+            computer_vision_page.main()
+        elif page == "Natural Language Processing":
+            nlp_page.main()
+        elif page == "Artificial Intelligence":
+            ai_page.main()
+        elif page == "Mathematics":
+            math_page.main()
 
 if __name__ == "__main__":
     main()
