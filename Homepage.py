@@ -15,14 +15,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# Create an empty container for the sidebar
-sidebar_container = st.empty()
-
-# Add components to the sidebar container
-with sidebar_container:
-    # Add components here
-    pass  # Leave this empty if you want to hide the sidebar
-
+st.sidebar.success("Select")
 
 # Define a function to display the selected page
 def display_page(page):
