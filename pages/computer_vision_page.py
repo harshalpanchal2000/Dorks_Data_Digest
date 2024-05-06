@@ -5,7 +5,7 @@ def computer_vision_page():
     st.title("Computer Vision Books")
     
     # Load the dataset
-    df = pd.read_csv("Computer Vision.csv")
+    df = pd.read_csv("datasets/Computer Vision.csv")
     
     # Get the theme background color
     background_color = st.get_option("theme.backgroundColor")
