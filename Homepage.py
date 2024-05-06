@@ -46,7 +46,7 @@ def main():
         elif page == "Deep Learning":
             deep_learning_page.main()
         elif page == "Computer Vision":
-            computer_vision_page.main()
+            computer_vision_page.computer_vision_page()
         elif page == "Natural Language Processing":
             nlp_page.main()
         elif page == "Artificial Intelligence":
