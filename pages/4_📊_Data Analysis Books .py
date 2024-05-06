@@ -82,7 +82,7 @@ def data_analysis_page():
                 <div class="info">
                     <div class="publisher">Publisher: {row['publisher']}</div>
                 </div>
-                <div class="reviews"> Reviews on Amazon ⭐ <span class="font-semibold">{row['avg_reviews']}</span><span class="opacity-75">/10</span></div>
+                <div class="reviews"> Reviews on Amazon ⭐ <span class="font-semibold">{row['avg_reviews']}</span><span class="opacity-75">/5</span></div>
                 <div class="info">
                     <div class="pages"><strong>Pages:</strong> {row['pages']}</div>
                     <div class="price"><strong>Price:</strong> ${row['price']}</div>
