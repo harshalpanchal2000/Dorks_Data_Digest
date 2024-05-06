@@ -40,19 +40,19 @@ def main():
     page = st.experimental_get_query_params().get("page", None)
     if page:
         if page == "Data Analysis":
-            data_analysis_page.main()
+            data_analysis_page.data_analysis_page()
         elif page == "Machine Learning":
-            machine_learning_page.main()
+            machine_learning_page.machine_learning_page()
         elif page == "Deep Learning":
-            deep_learning_page.main()
+            deep_learning_page.deep_learning_page()
         elif page == "Computer Vision":
             computer_vision_page.computer_vision_page()
         elif page == "Natural Language Processing":
-            nlp_page.main()
+            nlp_page.nlp_page()
         elif page == "Artificial Intelligence":
-            ai_page.main()
+            ai_page.ai_page()
         elif page == "Mathematics":
-            math_page.main()
+            math_page.math_page()
 
 if __name__ == "__main__":
     main()
