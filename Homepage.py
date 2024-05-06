@@ -1,6 +1,4 @@
 import streamlit as st
-import webbrowser
-from pages import data_analysis_page, machine_learning_page, deep_learning_page, computer_vision_page, nlp_page, ai_page, math_page
 
 # Define the homepage layout
 def display_homepage():
