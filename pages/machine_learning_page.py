@@ -5,7 +5,7 @@ def machine_learning_page():
     st.title("Machine Learning Books")
 
 # Load the dataset
-    df = pd.read_csv("Machine Learning.csv")
+    df = pd.read_csv("datasets/Machine Learning.csv")
     
     # Get the theme background color
     background_color = st.get_option("theme.backgroundColor")
