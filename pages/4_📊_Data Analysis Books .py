@@ -97,11 +97,18 @@ def data_analysis_page():
     )
 
     col1, col2, col3 = st.columns([1, 3, 1])
-    if col1.button("⬅️ Previous"):
-        st.session_state.index = max(st.session_state.index - 1, 0)
-    with col3:
-        if st.button("Next ➡️", key="next_button"):
-            st.session_state.index = min(st.session_state.index + 1, len(df) - 1)
+    if st.session_state.index == 0:
+        col1.button("⬅️ Previous", disabled=True)
+    else:
+        if col1.button("⬅️ Previous"):
+            st.session_state.index = max(st.session_state.index - 1, 0)
+            
+    if st.session_state.index == len(df) - 1:
+        col3.button("Next ➡️", disabled=True)
+    else:
+        with col3:
+            if st.button("Next ➡️", key="next_button"):
+                st.session_state.index = min(st.session_state.index + 1, len(df) - 1)
 
 if __name__ == "__main__":
     data_analysis_page()
