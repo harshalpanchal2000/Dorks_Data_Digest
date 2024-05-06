@@ -8,10 +8,12 @@ def display_homepage():
         unsafe_allow_html=True
     )
 
-    st.markdown("<p style='text-align:center;'>This is your data science book recommendation app, where you will find top-rated books related to Data Science. 
+    st.markdown("""
+        <p style='text-align:center;'>This is your data science book recommendation app, where you will find top-rated books related to Data Science. 
         Whether you're interested in Data Analysis, Machine Learning, Deep Learning, Computer Vision, Natural Language Processing, Artificial Intelligence, or Mathematics, 
-        we've got you covered! Simply select the type of book you'd like from the sidebar.</p>",
-        unsafe_allow_html=False
+        we've got you covered! Simply select the type of book you'd like from the sidebar.</p>
+        """,
+        unsafe_allow_html=True
     )
 
     st.markdown(
