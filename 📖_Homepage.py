@@ -25,7 +25,7 @@ def display_homepage():
 
 # Run the app
 def main():
-    st.set_page_config(page_title="Dork's Data Digest", page_icon="📖")
+    st.set_page_config(page_title="Dork's Data Digest", page_icon=":book:")
     display_homepage()
 
 if __name__ == "__main__":
