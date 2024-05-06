@@ -32,7 +32,7 @@ def display_page(page):
     elif page == "Artificial Intelligence":
         ai_page()
     elif page == "Mathematics":
-        math_page.py
+        math_page()
 
 # Define the homepage layout
 def display_homepage():
