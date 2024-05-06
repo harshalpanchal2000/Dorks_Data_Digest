@@ -1,4 +1,5 @@
 import streamlit as st
+import webbrowser
 from pages import data_analysis_page, machine_learning_page, deep_learning_page, computer_vision_page, nlp_page, ai_page, math_page
 
 # Define the homepage layout
@@ -24,8 +25,8 @@ def display_homepage():
     for cluster, icon, page in clusters:
         if cluster == "Machine Learning":
             if col1.button(f"{icon} {cluster}", key=f"{cluster}_button"):
-                st.markdown("[Redirecting...](https://dorksdataadigest.streamlit.app/machine_learning_page?page=Machine+Learning)")
-                st.experimental_rerun()
+                url = "https://dorksdataadigest.streamlit.app/machine_learning_page?page=Machine+Learning"
+                webbrowser.open_new_tab(url)
         else:
             if col1.button(f"{icon} {cluster}", key=f"{cluster}_button"):
                 st.experimental_set_query_params(page=cluster)
